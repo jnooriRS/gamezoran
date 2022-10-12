@@ -40,3 +40,17 @@ Zortan is under attack, choose the pairs no. that will attack Thanos
 4) Hulk & Ironman
 ---------------------------------------------------------------------
 """
+
+# start game
+while True:
+
+    # First check, can we play the game?
+    if thanos_life <= 0 and attack_num <= 3:
+        print(WIN_MSG)
+        break
+    elif attack_num >=3:
+        print(LOST_MSG)
+        break
+    # if we can play, ask for user input
+    print(MSG)
+    choice = int(input("Enter your pair no >>> "))
