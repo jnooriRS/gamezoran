@@ -28,8 +28,8 @@ choice = 0
 attack_num = 0
 
 #declare helper messages
-WIN_MSG: Final[str] = "You successfully saved zortan !!! ✨ ✨ ✨"
-LOST_MSG: Final[str] = "Thanos killed Avengers and caputred Zortan!! 💀 💀 💀 "
+WIN_MSG: Final[str] = "You successfully saved zortan !!!"
+LOST_MSG: Final[str] = "Thanos killed Avengers and caputred Zortan!! "
 #mulitline message
 MSG = """
 ---------------------------------------------------------------------
@@ -38,6 +38,7 @@ Zortan is under attack, choose the pairs no. that will attack Thanos
 2) Black Widow & Spiderman
 3) Spiderman & Hulk
 4) Hulk & Ironman
+5) LEAVE GAME
 ---------------------------------------------------------------------
 """
 
@@ -52,5 +53,31 @@ while True:
         print(LOST_MSG)
         break
     # if we can play, ask for user input
+    print(f"Thanos health is now {thanos_life} you have {attack_num} left")
     print(MSG)
     choice = int(input("Enter your pair no >>> "))
+ # ---------------------------------------------------------------------
+    # Student Exercise -
+    #
+    # Can you implement the following If/Else blocks using `match` operator?
+    # ----------------------------------------------------------------------
+    
+    if choice == 1:
+        print("Ironman & Black widow are attacking Thanos...")
+        thanos_life = thanos_life - IRONMAN_ATTACK - BLACKWIDOW_ATTACK_POWER
+        attack_num = attack_num + 1
+    elif choice == 2:
+        print("Black widow & Spiderman are attacking Thanos...")
+        thanos_life = thanos_life - BLACKWIDOW_ATTACK_POWER - SPIDERMAN_ATTACK_POWER
+        attack_num += 1
+    elif choice == 3:
+        print("Spiderman & Hulk are attacking Thanos...")
+        thanos_life = thanos_life - SPIDERMAN_ATTACK_POWER - HULK_ATTACK_POWER
+        attack_num += 1
+    elif choice == 4:
+        print("Ironman & Black widow are attacking Thanos...")
+        thanos_life = thanos_life - HULK_ATTACK_POWER - IRONMAN_ATTACK
+        attack_num += 1
+    elif choice == 5:
+        print("You chose to leave")
+        break
